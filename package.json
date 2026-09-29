@@ -1,0 +1,11 @@
+{
+  "name": "kalf-store-dev-tools",
+  "private": true,
+  "description": "Ferramentas de desenvolvimento local (WordPress + testes). Nao faz parte do tema entregue.",
+  "devDependencies": {
+    "@wp-playground/cli": "^3.1.56",
+    "chrome-launcher": "^1.2.1",
+    "lighthouse": "^13.5.0",
+    "puppeteer": "^25.12.0"
+  }
+}

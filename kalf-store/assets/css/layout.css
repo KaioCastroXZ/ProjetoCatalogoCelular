@@ -1,0 +1,585 @@
+/* ==========================================================================
+   KALF STORE — Header, rodape, menu mobile e secoes de pagina
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Logo (usado no header, menu mobile e rodape)
+   -------------------------------------------------------------------------- */
+.kalf-logo {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--s-2);
+	color: var(--preto);
+	text-decoration: none;
+}
+.kalf-logo__marca {
+	width: 12px;
+	height: 12px;
+	flex-shrink: 0;
+	border-radius: 3px;
+	background: var(--laranja);
+}
+.kalf-logo__texto {
+	font-family: var(--fonte-titulo);
+	font-size: 1.375rem;
+	font-weight: 800;
+	letter-spacing: -0.02em;
+}
+
+@media (min-width: 1024px) {
+	.kalf-logo__texto { font-size: 1.625rem; }
+	.kalf-logo__marca { width: 14px; height: 14px; }
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+.kalf-header {
+	position: sticky;
+	top: 0;
+	z-index: 40;
+	background: var(--fundo);
+	border-bottom: 1px solid var(--borda);
+}
+
+.kalf-header__linha {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 64px;
+}
+
+.kalf-nav-principal { display: none; }
+
+.kalf-nav-principal__link {
+	display: flex;
+	align-items: center;
+	height: var(--btn-p);
+	padding-inline: var(--s-5);
+	border-radius: var(--r-pilula);
+	color: var(--preto);
+	font-weight: 600;
+	text-decoration: none;
+	transition: background-color var(--t-hover) var(--ease);
+}
+.kalf-nav-principal__link:hover { background: var(--menu-ativo); color: var(--preto); }
+.kalf-nav-principal__link[aria-current="page"] {
+	background: var(--menu-ativo);
+	font-weight: 700;
+}
+
+.kalf-header__whatsapp { display: none; }
+.kalf-header__mobile-acoes { display: flex; gap: 4px; }
+
+@media (min-width: 1024px) {
+	.kalf-header__linha { height: 88px; }
+	.kalf-nav-principal { display: flex; gap: var(--s-2); }
+	.kalf-header__whatsapp { display: inline-flex; }
+	.kalf-header__mobile-acoes { display: none; }
+}
+
+/* --------------------------------------------------------------------------
+   Menu mobile — tela cheia laranja
+   -------------------------------------------------------------------------- */
+.kalf-menu-mobile {
+	position: fixed;
+	inset: 0;
+	z-index: 100;
+	display: flex;
+	flex-direction: column;
+	background: var(--laranja);
+	color: var(--preto);
+	overflow-y: auto;
+}
+.kalf-menu-mobile[hidden] { display: none; }
+
+.kalf-menu-mobile__topo {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 64px;
+	flex-shrink: 0;
+	padding: 0 var(--s-3) 0 var(--s-5);
+}
+.kalf-logo__marca--preto { background: var(--preto); }
+
+.kalf-menu-mobile__fechar { background: var(--preto); color: var(--branco); }
+.kalf-menu-mobile__fechar:hover { background: var(--preto-hover); }
+
+.kalf-menu-mobile__nav {
+	display: flex;
+	flex-direction: column;
+	padding: var(--s-8) var(--s-5) 0;
+}
+.kalf-menu-mobile__nav a {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 80px;
+	border-bottom: 1.5px solid rgba(20, 17, 16, 0.25);
+	font-family: var(--fonte-titulo);
+	font-size: clamp(1.75rem, 1.6rem + 0.6vw, 2.25rem);
+	font-weight: 800;
+	letter-spacing: -0.03em;
+	color: var(--preto);
+	text-decoration: none;
+}
+.kalf-menu-mobile__nav a[aria-current="page"]::after {
+	content: "";
+	width: 12px;
+	height: 12px;
+	border-radius: var(--r-pilula);
+	background: var(--preto);
+}
+
+.kalf-menu-mobile__rodape {
+	display: flex;
+	flex-direction: column;
+	gap: var(--s-4);
+	margin-top: auto;
+	padding: var(--s-6) var(--s-5) var(--s-8);
+}
+.kalf-menu-mobile__endereco {
+	font-size: var(--fs-pequeno);
+	line-height: 1.5;
+	text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Rodape
+   -------------------------------------------------------------------------- */
+.kalf-rodape {
+	padding-block: var(--s-9) var(--s-9);
+	background: var(--preto);
+	color: var(--branco);
+}
+.kalf-rodape a { color: var(--branco); text-decoration: none; }
+.kalf-rodape a:hover { color: var(--laranja); }
+
+.kalf-rodape__grade {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--s-7);
+	padding-bottom: var(--s-7);
+}
+
+.kalf-rodape__sobre { display: flex; flex-direction: column; gap: var(--s-4); }
+.kalf-rodape__sobre p { font-size: var(--fs-pequeno); line-height: 1.5; color: var(--rodape-texto); }
+
+.kalf-rodape__coluna { display: flex; flex-direction: column; gap: 4px; }
+.kalf-rodape__titulo-coluna {
+	padding-bottom: var(--s-2);
+	font-size: 0.8125rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--laranja);
+}
+.kalf-rodape__coluna a { display: flex; align-items: center; gap: var(--s-2); min-height: 32px; font-size: var(--fs-pequeno); }
+.kalf-rodape__texto { font-size: var(--fs-pequeno); line-height: 1.5; color: var(--rodape-texto); }
+
+.kalf-rodape__base {
+	display: flex;
+	flex-direction: column;
+	gap: var(--s-2);
+	padding-top: var(--s-6);
+	border-top: 1px solid var(--rodape-divisor);
+	font-size: var(--fs-pequeno);
+	color: var(--rodape-texto);
+}
+
+@media (min-width: 600px) {
+	.kalf-rodape__base { flex-direction: row; justify-content: space-between; }
+}
+
+@media (min-width: 1024px) {
+	.kalf-rodape { padding-block: 72px var(--s-9); }
+	.kalf-rodape__grade { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-6); }
+}
+
+/* --------------------------------------------------------------------------
+   Secoes genericas de pagina
+   -------------------------------------------------------------------------- */
+.kalf-secao__topo {
+	display: flex;
+	flex-direction: column;
+	gap: var(--s-4);
+	margin-bottom: var(--s-7);
+}
+
+@media (min-width: 1024px) {
+	.kalf-secao__topo { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+}
+
+.kalf-ver-todos {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--s-2);
+	height: var(--btn-p);
+	font-weight: 700;
+	text-decoration: none;
+	flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Trilha (breadcrumb)
+   -------------------------------------------------------------------------- */
+.kalf-trilha {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--s-2);
+	padding-block: var(--s-6) var(--s-2);
+	font-size: var(--fs-pequeno);
+	color: var(--cinza-texto);
+}
+.kalf-trilha a { color: var(--cinza-texto); text-decoration: none; }
+.kalf-trilha a:hover { color: var(--laranja-texto); }
+.kalf-trilha [aria-current] { color: var(--preto); font-weight: 600; }
+
+/* --------------------------------------------------------------------------
+   Hero (home)
+   -------------------------------------------------------------------------- */
+.kalf-hero {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--s-6);
+	align-items: center;
+	padding-block: var(--s-7) var(--secao-y);
+}
+
+.kalf-hero__conteudo { display: flex; flex-direction: column; align-items: flex-start; gap: var(--s-5); }
+
+.kalf-hero__selo {
+	display: inline-flex;
+	align-items: center;
+	height: 36px;
+	padding-inline: var(--s-4);
+	border-radius: var(--r-pilula);
+	background: var(--laranja-claro);
+	color: var(--laranja-escuro);
+	font-size: var(--fs-pequeno);
+	font-weight: 600;
+}
+
+.kalf-hero__titulo {
+	font-size: var(--fs-display);
+	line-height: var(--lh-display);
+	letter-spacing: var(--ls-display);
+	text-wrap: balance;
+}
+
+.kalf-hero__subtitulo {
+	max-width: 34ch;
+	font-size: var(--fs-texto-g);
+	line-height: 1.5;
+	color: var(--cinza-texto);
+}
+
+.kalf-hero__acoes { display: flex; flex-wrap: wrap; gap: var(--s-3); padding-top: var(--s-2); }
+
+.kalf-hero__imagem {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 320px;
+	border-radius: var(--r-hero);
+	background: var(--laranja);
+	overflow: hidden;
+}
+.kalf-hero__imagem img {
+	position: relative;
+	z-index: 1;
+	max-height: 90%;
+	border-radius: 24px;
+	box-shadow: var(--sh-painel);
+}
+.kalf-hero__imagem-decoracao {
+	position: absolute;
+	width: 60%;
+	aspect-ratio: 1;
+	border-radius: var(--r-pilula);
+	background: var(--laranja-medio);
+}
+.kalf-hero__imagem-placeholder {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 55%;
+	aspect-ratio: 3 / 5;
+	padding: var(--s-3);
+	border-radius: 32px;
+	background: var(--preto);
+	box-shadow: var(--sh-painel);
+}
+.kalf-hero__imagem-placeholder span {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	border-radius: 24px;
+	background: var(--laranja-claro);
+	color: var(--laranja-escuro);
+	font-size: var(--fs-pequeno);
+	font-weight: 700;
+	text-align: center;
+	padding: var(--s-3);
+}
+
+@media (min-width: 1024px) {
+	.kalf-hero { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-9); padding-block: var(--s-11) var(--secao-y); }
+	.kalf-hero__imagem { height: 600px; }
+}
+
+/* --------------------------------------------------------------------------
+   Faixa de diferenciais
+   -------------------------------------------------------------------------- */
+.kalf-diferenciais {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--s-6);
+	padding: var(--s-6);
+	border-radius: var(--r-bloco);
+	background: var(--branco);
+}
+
+.kalf-diferencial { display: flex; gap: var(--s-4); align-items: flex-start; }
+.kalf-diferencial__icone {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	flex-shrink: 0;
+	border-radius: var(--r-pilula);
+	background: var(--laranja-claro);
+	color: var(--laranja-texto);
+}
+.kalf-diferencial__texto { display: flex; flex-direction: column; gap: 4px; }
+.kalf-diferencial__texto strong { font-size: 1.0625rem; font-weight: 700; }
+.kalf-diferencial__texto span { font-size: var(--fs-pequeno); color: var(--cinza-texto); }
+
+@media (min-width: 768px) {
+	.kalf-diferenciais { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+	.kalf-diferenciais { grid-template-columns: repeat(4, minmax(0, 1fr)); padding: var(--s-7); }
+}
+
+/* --------------------------------------------------------------------------
+   Vitrine de destaques (home): scroll horizontal no mobile, grade no desktop
+   -------------------------------------------------------------------------- */
+.kalf-destaques {
+	display: flex;
+	gap: var(--s-3);
+	padding-bottom: var(--s-2);
+	margin-inline: calc(var(--margem) * -1);
+	padding-inline: var(--margem);
+	overflow-x: auto;
+	scroll-snap-type: x proximity;
+	-webkit-overflow-scrolling: touch;
+}
+.kalf-destaques .kalf-card { scroll-snap-align: start; }
+
+@media (min-width: 1024px) {
+	.kalf-destaques {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: var(--s-6);
+		margin-inline: 0;
+		padding-inline: 0;
+		overflow: visible;
+	}
+}
+
+/* --------------------------------------------------------------------------
+   Atalhos por marca
+   -------------------------------------------------------------------------- */
+.kalf-marcas {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: var(--s-4);
+}
+.kalf-marcas__item {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 120px;
+	padding: var(--s-5);
+	border-radius: var(--r-card);
+	background: var(--branco);
+	color: var(--preto);
+	text-decoration: none;
+	transition: transform var(--t-hover) var(--ease);
+}
+.kalf-marcas__item:hover { transform: translateY(-2px); }
+.kalf-marcas__item--todas { background: var(--preto); color: var(--branco); }
+.kalf-marcas__nome { font-family: var(--fonte-titulo); font-size: 1.375rem; font-weight: 800; letter-spacing: -0.02em; }
+.kalf-marcas__link { font-size: var(--fs-pequeno); font-weight: 700; color: var(--laranja-texto); }
+.kalf-marcas__item--todas .kalf-marcas__link { color: var(--laranja); }
+
+@media (min-width: 768px) {
+	.kalf-marcas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+	.kalf-marcas { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+	.kalf-marcas__item { height: 152px; padding: var(--s-6); }
+	.kalf-marcas__nome { font-size: 1.875rem; }
+}
+
+/* --------------------------------------------------------------------------
+   Como comprar
+   -------------------------------------------------------------------------- */
+.kalf-como-comprar__topo {
+	display: flex;
+	flex-direction: column;
+	gap: var(--s-4);
+	margin-bottom: var(--s-7);
+}
+.kalf-como-comprar__topo p { max-width: 42ch; font-size: var(--fs-texto-g); line-height: 1.5; }
+
+.kalf-passos {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--s-4);
+	margin-bottom: var(--s-7);
+}
+.kalf-passo {
+	display: flex;
+	flex-direction: column;
+	gap: var(--s-4);
+	padding: var(--s-6);
+	border-radius: var(--r-bloco);
+	background: var(--branco);
+	color: var(--preto);
+}
+.kalf-passo__numero {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 56px;
+	height: 56px;
+	border-radius: var(--r-pilula);
+	background: var(--preto);
+	color: var(--branco);
+	font-family: var(--fonte-titulo);
+	font-size: 1.5rem;
+	font-weight: 800;
+}
+.kalf-passo p { font-size: 1.0625rem; line-height: 1.5; color: var(--cinza-texto); }
+
+@media (min-width: 1024px) {
+	.kalf-como-comprar__topo { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+	.kalf-passos { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-6); }
+}
+
+/* --------------------------------------------------------------------------
+   Contato / mapa (bloco reaproveitado na home e na pagina de contato)
+   -------------------------------------------------------------------------- */
+.kalf-contato {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--s-6);
+}
+
+.kalf-contato__info { display: flex; flex-direction: column; gap: var(--s-4); }
+
+.kalf-info-linha {
+	display: flex;
+	gap: var(--s-4);
+	align-items: center;
+}
+.kalf-info-linha__icone {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	flex-shrink: 0;
+	border-radius: var(--r-pilula);
+	background: var(--laranja-claro);
+	color: var(--laranja-texto);
+}
+.kalf-info-linha__texto { display: flex; flex-direction: column; gap: 2px; }
+.kalf-info-linha__legenda { font-size: var(--fs-pequeno); color: var(--cinza-texto); }
+.kalf-info-linha__valor { font-size: 1.0625rem; font-weight: 600; line-height: 1.4; }
+
+.kalf-contato__botoes { display: flex; flex-direction: column; gap: var(--s-3); }
+.kalf-contato__botoes .kalf-btn { flex: 1; }
+
+@media (min-width: 480px) {
+	.kalf-contato__botoes { flex-direction: row; }
+}
+
+.kalf-mapa {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 320px;
+	border-radius: var(--r-bloco);
+	background-color: #EFE8E1;
+	background-image:
+		repeating-linear-gradient(0deg, transparent 0 63px, #E3DAD2 63px 64px),
+		repeating-linear-gradient(90deg, transparent 0 63px, #E3DAD2 63px 64px);
+	overflow: hidden;
+}
+.kalf-mapa iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.kalf-mapa__pino {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 64px;
+	height: 64px;
+	border-radius: var(--r-pilula);
+	background: var(--laranja);
+	color: var(--preto);
+	box-shadow: 0 8px 24px rgba(20, 17, 16, 0.18);
+}
+.kalf-mapa__legenda {
+	position: absolute;
+	left: var(--s-4);
+	bottom: var(--s-4);
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	height: 36px;
+	padding-inline: var(--s-4);
+	border-radius: var(--r-pilula);
+	background: var(--branco);
+	font-size: var(--fs-pequeno);
+	font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+	.kalf-contato { grid-template-columns: 5fr 7fr; gap: var(--s-6); }
+	.kalf-mapa { min-height: 640px; }
+}
+
+/* Cartao laranja de WhatsApp em destaque, na pagina de Contato */
+.kalf-whatsapp-destaque {
+	display: flex;
+	flex-direction: column;
+	gap: var(--s-4);
+	padding: var(--s-6);
+	border-radius: var(--r-bloco);
+	background: var(--laranja);
+	color: var(--preto);
+}
+.kalf-whatsapp-destaque__rotulo {
+	font-size: var(--fs-pequeno);
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+.kalf-whatsapp-destaque__numero {
+	font-family: var(--fonte-titulo);
+	font-size: 1.75rem;
+	font-weight: 800;
+	line-height: 1.05;
+}

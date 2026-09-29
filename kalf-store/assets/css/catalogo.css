@@ -1,0 +1,209 @@
+/* ==========================================================================
+   KALF STORE — Catalogo: topo, filtros, painel mobile
+   ========================================================================== */
+
+.kalf-catalogo-topo { padding-top: var(--s-2); padding-bottom: var(--s-6); }
+
+.kalf-catalogo-titulo {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: var(--s-4);
+}
+.kalf-catalogo-contagem { font-size: var(--fs-pequeno); color: var(--cinza-texto); white-space: nowrap; }
+
+.kalf-catalogo-filtros {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: var(--s-4);
+	padding-bottom: var(--s-6);
+}
+
+.kalf-filtros-linha {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--s-3);
+}
+
+.kalf-catalogo-filtros .kalf-busca { flex: 1 1 220px; max-width: 400px; }
+.kalf-catalogo-flex-espaco { flex-grow: 1; display: none; }
+.kalf-ordenar { display: none; }
+
+.kalf-catalogo-filtros-mobile { flex-shrink: 0; }
+
+@media (min-width: 1024px) {
+	.kalf-catalogo-flex-espaco { display: block; }
+	.kalf-ordenar { display: flex; }
+	.kalf-catalogo-filtros-mobile { display: none; }
+}
+
+/* Chips "Marca" / "Mais filtros" ficam escondidos no mobile — abrem o
+   painel de baixo pra cima em vez do popover de desktop. */
+[data-kalf-abrir-marca],
+[data-kalf-abrir-mais] { display: none; }
+@media (min-width: 1024px) {
+	[data-kalf-abrir-marca],
+	[data-kalf-abrir-mais] { display: inline-flex; }
+}
+
+.kalf-filtros-ativos {
+	display: flex;
+	align-items: center;
+	gap: var(--s-2);
+	flex-wrap: wrap;
+}
+.kalf-filtros-ativos[hidden] { display: none; }
+.kalf-filtros-ativos__rotulo { font-size: var(--fs-pequeno); color: var(--cinza-texto); }
+.kalf-filtros-ativos__lista { display: flex; gap: var(--s-2); flex-wrap: wrap; }
+
+.kalf-painel-filtro {
+	position: absolute;
+	top: 60px;
+	left: 0;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	width: 280px;
+	padding: var(--s-3);
+	border-radius: var(--r-card);
+	background: var(--branco);
+	box-shadow: var(--sh-painel);
+}
+.kalf-painel-filtro[hidden] { display: none; }
+.kalf-painel-filtro--largo { width: 340px; gap: var(--s-6); padding: var(--s-4); }
+
+.kalf-painel-filtro__linha {
+	display: flex;
+	align-items: center;
+	gap: var(--s-3);
+	height: var(--btn-m);
+	padding-inline: var(--s-3);
+	border-radius: var(--r-lista);
+	font-size: var(--fs-texto);
+	cursor: pointer;
+}
+.kalf-painel-filtro__linha:hover { background: var(--fundo); }
+.kalf-painel-filtro__linha input { width: 20px; height: 20px; accent-color: var(--preto); }
+.kalf-painel-filtro__contador { margin-left: auto; font-size: var(--fs-pequeno); color: var(--cinza-texto); }
+
+.kalf-painel-filtro fieldset { margin: 0; padding: 0; border: 0; }
+.kalf-painel-filtro legend {
+	padding-bottom: var(--s-3);
+	font-size: 0.8125rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--cinza-texto);
+}
+.kalf-painel-filtro__pilula {
+	display: inline-flex;
+	align-items: center;
+	height: var(--btn-p);
+	padding-inline: var(--s-4);
+	margin: 0 var(--s-2) var(--s-2) 0;
+	border-radius: var(--r-pilula);
+	border: 1.5px solid var(--borda);
+	font-size: var(--fs-pequeno);
+	cursor: pointer;
+}
+.kalf-painel-filtro__pilula input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.kalf-painel-filtro__pilula:has(input:checked) {
+	background: var(--preto);
+	border-color: var(--preto);
+	color: var(--branco);
+}
+
+/* --------------------------------------------------------------------------
+   Painel mobile: sobe de baixo pra cima
+   -------------------------------------------------------------------------- */
+.kalf-painel-mobile-fundo {
+	position: fixed;
+	inset: 0;
+	z-index: 100;
+	background: rgba(20, 17, 16, 0.5);
+}
+.kalf-painel-mobile-fundo[hidden] { display: none; }
+
+.kalf-painel-mobile {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	max-height: 85vh;
+	background: var(--branco);
+	border-radius: var(--r-bloco) var(--r-bloco) 0 0;
+	box-shadow: 0 -24px 64px rgba(20, 17, 16, 0.16);
+	transform: translateY(100%);
+	transition: transform var(--t-painel) var(--ease);
+}
+.kalf-painel-mobile-fundo:not([hidden]) .kalf-painel-mobile { transform: translateY(0); }
+
+.kalf-painel-mobile__alca { display: flex; justify-content: center; padding-top: 10px; }
+.kalf-painel-mobile__alca::after {
+	content: "";
+	width: 40px;
+	height: 5px;
+	border-radius: var(--r-pilula);
+	background: var(--ponto-inativo);
+}
+
+.kalf-painel-mobile__topo {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: var(--s-2) var(--s-3) var(--s-2) var(--s-6);
+}
+.kalf-painel-mobile__topo h2 { font-size: 1.75rem; }
+
+.kalf-painel-mobile__corpo {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	gap: var(--s-7);
+	padding: var(--s-4) var(--s-6);
+	overflow-y: auto;
+}
+.kalf-painel-mobile__corpo fieldset { margin: 0; padding: 0; border: 0; }
+.kalf-painel-mobile__corpo legend {
+	padding-bottom: var(--s-3);
+	font-size: 0.8125rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--cinza-texto);
+}
+.kalf-painel-mobile__pilulas { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.kalf-painel-mobile__grade2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-2); }
+.kalf-painel-mobile__grade4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-2); }
+.kalf-painel-mobile__grade2 .kalf-chip-filtro,
+.kalf-painel-mobile__grade4 .kalf-chip-filtro { justify-content: center; }
+
+.kalf-painel-mobile__rodape {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	gap: var(--s-3);
+	padding: var(--s-4) var(--s-5) var(--s-8);
+	border-top: 1px solid var(--borda);
+	flex-shrink: 0;
+}
+.kalf-painel-mobile__rodape .kalf-btn { height: var(--btn-g); }
+
+/* --------------------------------------------------------------------------
+   Rodape do catalogo (mostrando X de Y + carregar mais)
+   -------------------------------------------------------------------------- */
+.kalf-catalogo-rodape {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--s-3);
+	padding-block: var(--s-4) var(--secao-y);
+}
+.kalf-catalogo-rodape span { font-size: var(--fs-pequeno); color: var(--cinza-texto); }
+.kalf-catalogo-rodape[hidden],
+[data-kalf-carregar-mais][hidden] { display: none; }
+.kalf-catalogo-rodape .kalf-btn { min-width: 220px; }

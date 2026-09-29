@@ -1,0 +1,299 @@
+/* ==========================================================================
+   KALF STORE — Pagina do produto: galeria, info, CTA fixo
+   ========================================================================== */
+
+.kalf-produto {
+	display: flex;
+	flex-direction: column;
+	gap: var(--s-6);
+	padding-bottom: var(--secao-y);
+}
+
+/* --------------------------------------------------------------------------
+   Galeria
+   -------------------------------------------------------------------------- */
+.kalf-galeria { display: flex; flex-direction: column; gap: var(--s-3); }
+
+.kalf-galeria__principal {
+	position: relative;
+	border-radius: 28px;
+	background: var(--fundo-foto);
+	overflow: hidden;
+}
+
+.kalf-galeria__trilho {
+	display: flex;
+	scroll-snap-type: x mandatory;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	scrollbar-width: none;
+}
+.kalf-galeria__trilho::-webkit-scrollbar { display: none; }
+
+.kalf-galeria__slide {
+	flex: 0 0 100%;
+	scroll-snap-align: start;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	aspect-ratio: 4 / 5;
+	max-height: 450px;
+	padding: 6%;
+}
+.kalf-galeria__slide img { width: 100%; height: 100%; object-fit: contain; }
+
+.kalf-sem-foto-grande { background: var(--fundo-foto); }
+
+.kalf-galeria__selo {
+	position: absolute;
+	top: var(--s-4);
+	left: var(--s-4);
+}
+
+.kalf-galeria__contador {
+	position: absolute;
+	top: var(--s-4);
+	right: var(--s-4);
+	display: flex;
+	align-items: center;
+	height: 28px;
+	padding-inline: var(--s-2);
+	border-radius: var(--r-pilula);
+	background: rgba(20, 17, 16, 0.72);
+	color: var(--branco);
+	font-size: var(--fs-selo);
+	font-weight: 700;
+}
+
+.kalf-galeria__seta {
+	position: absolute;
+	top: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	margin-top: -22px;
+	border: 0;
+	border-radius: var(--r-pilula);
+	background: rgba(46, 41, 38, 0.8);
+	color: var(--branco);
+	cursor: pointer;
+}
+.kalf-galeria__seta--esq { left: var(--s-2); }
+.kalf-galeria__seta--dir { right: var(--s-2); }
+.kalf-galeria__seta:hover { background: rgba(46, 41, 38, 0.95); }
+
+.kalf-galeria__ampliar {
+	position: absolute;
+	right: var(--s-4);
+	bottom: var(--s-4);
+	display: none;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	border: 0;
+	border-radius: var(--r-pilula);
+	background: var(--branco);
+	color: var(--preto);
+	cursor: zoom-in;
+}
+
+.kalf-galeria__miniaturas { display: none; }
+.kalf-galeria__pontos { display: flex; justify-content: center; gap: 6px; }
+.kalf-galeria__ponto {
+	width: 6px;
+	height: 6px;
+	border-radius: var(--r-pilula);
+	background: var(--ponto-inativo);
+	transition: width var(--t-hover) var(--ease), background-color var(--t-hover) var(--ease);
+}
+.kalf-galeria__ponto--ativo { width: 20px; background: var(--preto); }
+
+@media (min-width: 1024px) {
+	.kalf-galeria { flex-direction: row-reverse; gap: var(--s-4); }
+	.kalf-galeria__principal { flex-grow: 1; border-radius: var(--r-bloco); }
+	.kalf-galeria__slide { max-height: none; }
+	.kalf-galeria__ampliar { display: flex; }
+	.kalf-galeria__contador { display: none; }
+	.kalf-galeria__seta { display: none; }
+	.kalf-galeria__pontos { display: none; }
+
+	.kalf-galeria__miniaturas {
+		display: flex;
+		flex-direction: column;
+		gap: var(--s-3);
+		width: 88px;
+		flex-shrink: 0;
+	}
+	.kalf-galeria__miniatura {
+		width: 88px;
+		height: 110px;
+		padding: 0;
+		border: 2px solid transparent;
+		border-radius: var(--r-foto);
+		background: var(--fundo-foto);
+		cursor: pointer;
+		overflow: hidden;
+	}
+	.kalf-galeria__miniatura img { width: 100%; height: 100%; object-fit: contain; }
+	.kalf-galeria__miniatura[aria-current="true"] { border-color: var(--preto); }
+}
+
+/* --------------------------------------------------------------------------
+   Info do produto
+   -------------------------------------------------------------------------- */
+.kalf-produto__info { display: flex; flex-direction: column; gap: var(--s-6); }
+
+.kalf-produto__cabecalho { display: flex; flex-direction: column; gap: var(--s-2); }
+.kalf-produto__marca { font-size: var(--fs-pequeno); font-weight: 600; color: var(--cinza-texto); }
+.kalf-produto__titulo { font-size: clamp(2rem, 1.8rem + 1vw, 3rem); line-height: 1.08; letter-spacing: -0.03em; }
+
+.kalf-produto__specs { display: flex; flex-wrap: wrap; gap: var(--s-2); list-style: none; }
+
+.kalf-produto__preco-bloco {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding: var(--s-5);
+	border-radius: var(--r-card);
+	background: var(--branco);
+}
+.kalf-produto__preco {
+	font-family: var(--fonte-titulo);
+	font-size: var(--fs-preco-produto);
+	line-height: 1.1;
+	font-weight: 800;
+	letter-spacing: -0.02em;
+}
+.kalf-produto__preco--consulte { font-size: 1.75rem; }
+.kalf-produto__parcelamento { font-size: var(--fs-pequeno); color: var(--cinza-texto); }
+
+/* O CTA inline some no mobile — vira a barra fixa do rodape */
+.kalf-produto__cta-inline { display: none; }
+@media (min-width: 1024px) {
+	.kalf-produto__cta-inline { display: flex; }
+}
+
+.kalf-produto__extras {
+	display: flex;
+	flex-direction: column;
+	gap: var(--s-3);
+	padding-top: var(--s-2);
+	border-top: 1px solid var(--borda);
+}
+.kalf-produto__extra { display: flex; align-items: center; gap: var(--s-3); font-size: var(--fs-texto); }
+.kalf-produto__extra span { color: var(--laranja-texto); display: flex; flex-shrink: 0; }
+
+@media (min-width: 1024px) {
+	.kalf-produto { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-11); align-items: start; }
+}
+
+/* --------------------------------------------------------------------------
+   Barra fixa do CTA no mobile
+   -------------------------------------------------------------------------- */
+.kalf-cta-fixo {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 30;
+	display: flex;
+	flex-direction: column;
+	gap: var(--s-2);
+	padding: var(--s-3) var(--s-4) var(--s-7);
+	background: var(--branco);
+	border-top: 1px solid var(--borda);
+	box-shadow: var(--sh-barra-fixa);
+}
+.kalf-cta-fixo__linha { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s-3); padding-inline: var(--s-1); }
+.kalf-cta-fixo__nome { font-size: var(--fs-pequeno); color: var(--cinza-texto); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.kalf-cta-fixo__preco { flex-shrink: 0; font-family: var(--fonte-titulo); font-size: 1.125rem; font-weight: 800; }
+
+/* Espaco reservado no fim da pagina para a barra fixa nao tampar o
+   ultimo conteudo (o rodape pode ficar por baixo dela, isso e esperado). */
+body.single-aparelho { padding-bottom: 112px; }
+
+@media (min-width: 1024px) {
+	.kalf-cta-fixo { display: none; }
+	body.single-aparelho { padding-bottom: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   Lightbox / galeria em tela cheia
+   -------------------------------------------------------------------------- */
+.kalf-lightbox {
+	position: fixed;
+	inset: 0;
+	z-index: 200;
+	display: flex;
+	flex-direction: column;
+	background: var(--preto);
+	color: var(--branco);
+}
+.kalf-lightbox[hidden] { display: none; }
+
+.kalf-lightbox__topo {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 64px;
+	padding: 0 var(--s-3) 0 var(--s-5);
+	flex-shrink: 0;
+}
+.kalf-lightbox__fechar { background: var(--preto-hover); color: var(--branco); }
+.kalf-lightbox__fechar:hover { background: var(--rodape-divisor); }
+
+.kalf-lightbox__palco {
+	position: relative;
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	touch-action: pan-y pinch-zoom;
+}
+.kalf-lightbox__imagem { max-width: 92%; max-height: 92%; object-fit: contain; touch-action: pinch-zoom; }
+
+.kalf-lightbox__seta {
+	position: absolute;
+	top: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	margin-top: -22px;
+	border: 0;
+	border-radius: var(--r-pilula);
+	background: rgba(46, 41, 38, 0.8);
+	color: var(--branco);
+	cursor: pointer;
+}
+.kalf-lightbox__seta--esq { left: var(--s-2); }
+.kalf-lightbox__seta--dir { right: var(--s-2); }
+
+.kalf-lightbox__rodape {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--s-4);
+	padding: var(--s-4) var(--s-5) 36px;
+	flex-shrink: 0;
+}
+.kalf-lightbox__dica { font-size: var(--fs-pequeno); color: var(--rodape-texto); }
+.kalf-lightbox__miniaturas { display: flex; gap: var(--s-2); overflow-x: auto; max-width: 100%; }
+.kalf-lightbox__miniatura {
+	width: 56px;
+	height: 70px;
+	flex-shrink: 0;
+	padding: 0;
+	border: 2px solid transparent;
+	border-radius: var(--r-lista);
+	background: var(--preto-hover);
+	cursor: pointer;
+	overflow: hidden;
+}
+.kalf-lightbox__miniatura img { width: 100%; height: 100%; object-fit: cover; }
+.kalf-lightbox__miniatura[aria-current="true"] { border-color: var(--laranja); }

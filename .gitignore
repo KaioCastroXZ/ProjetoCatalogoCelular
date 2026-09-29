@@ -1,0 +1,8 @@
+# Ferramentas de desenvolvimento local (WordPress + Puppeteer + Lighthouse).
+# Nao fazem parte do tema entregue ao cliente.
+node_modules/
+package-lock.json
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db

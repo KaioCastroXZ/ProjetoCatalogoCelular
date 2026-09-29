@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8">
+<title>KALF STORE — Componentes e estados</title>
+<script src="42d3ee6c-a8ef-4df8-8622-3757788998eb"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>/* vietnamese */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("175662c6-451b-4d84-91b0-880bd648d8a1") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("0456a04d-b10b-4217-9039-f7cdb7d48d87") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("8a4c1a4a-f2f8-4ac9-b539-0fdad5540e88") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("175662c6-451b-4d84-91b0-880bd648d8a1") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("0456a04d-b10b-4217-9039-f7cdb7d48d87") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("8a4c1a4a-f2f8-4ac9-b539-0fdad5540e88") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("175662c6-451b-4d84-91b0-880bd648d8a1") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("0456a04d-b10b-4217-9039-f7cdb7d48d87") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("8a4c1a4a-f2f8-4ac9-b539-0fdad5540e88") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("903b546c-a265-4c37-bbc4-a7a7bf892250") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("dc6c5292-94e8-4b56-bf38-b211dbbc6e78") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("903b546c-a265-4c37-bbc4-a7a7bf892250") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("dc6c5292-94e8-4b56-bf38-b211dbbc6e78") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("903b546c-a265-4c37-bbc4-a7a7bf892250") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("dc6c5292-94e8-4b56-bf38-b211dbbc6e78") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("903b546c-a265-4c37-bbc4-a7a7bf892250") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("dc6c5292-94e8-4b56-bf38-b211dbbc6e78") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+body{margin:0;font-family:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif;color:#141110;background:#FBF8F5}
+a{color:#C24E00}a:hover{color:#8A3700}
+</style>
+</helmet>
+<div style="width: 1440px; height: 4000px; box-sizing: border-box; display: flex; flex-direction: column; gap: 72px; padding: 80px; background: #FBF8F5; color: #141110; font-family: 'Figtree', system-ui, sans-serif; overflow: hidden">
+
+<section style="display: flex; align-items: flex-end; justify-content: space-between; gap: 48px">
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 88px; line-height: 0.95; font-weight: 800; letter-spacing: -0.035em">Componentes<br>e estados</h1>
+<p style="margin: 0; max-width: 460px; font-size: 18px; line-height: 1.5; color: #6B625B">Todas as variações que o desenvolvedor precisa implementar. Medidas em px, versão desktop. Diferenças do mobile estão indicadas.</p>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 32px">
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 48px; line-height: 1.05; font-weight: 800; letter-spacing: -0.03em">Card de produto</h2>
+<div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 32px 24px">
+<sc-for list="{{cards}}" as="item" hint-placeholder-count="10">
+<div style="display: flex; flex-direction: column; gap: 12px; min-width: 0">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6B625B">{{item.label}}</span>
+<article style="display: flex; flex-direction: column; gap: 12px; padding: 12px; background: #FFFFFF; border-radius: 24px; box-shadow: 0 1px 2px rgba(20,17,16,0.06), 0 8px 24px rgba(20,17,16,0.06)">
+<div style="position: relative; display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 5; background: #F3EEE9; border-radius: 16px; overflow: hidden">
+<sc-if value="{{item.hasPhoto}}" hint-placeholder-val="{{ true }}"><div style="width: 40%; aspect-ratio: 9 / 19; box-sizing: border-box; padding: 4px; background: #141110; border-radius: 18px; opacity: {{item.dim}}"><div style="width: 100%; height: 100%; border-radius: 14px; background: {{item.screen}}"></div></div></sc-if>
+<sc-if value="{{item.noPhoto}}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="display: flex; align-items: center; gap: 7px; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 19px; font-weight: 800; letter-spacing: -0.02em"><span style="width: 10px; height: 10px; border-radius: 3px; background: #FE6B01"></span>KALF STORE</span><span style="font-size: 13px; color: #6B625B">Foto em breve</span></div></sc-if>
+<sc-if value="{{item.hasBadge}}" hint-placeholder-val="{{ false }}"><span style="position: absolute; top: 12px; left: 12px; display: flex; align-items: center; height: 28px; padding: 0 12px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; background: {{item.badgeBg}}; color: {{item.badgeFg}}">{{item.badge}}</span></sc-if>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 0 4px; opacity: {{item.dim}}">
+<h3 style="margin: 0; min-height: 42px; font-size: 16px; line-height: 1.3; font-weight: 600; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">{{item.name}}</h3>
+<span style="font-size: 14px; color: #6B625B">{{item.specs}}</span>
+</div>
+<div style="display: flex; flex-direction: column; justify-content: flex-end; gap: 2px; min-height: 68px; padding: 0 4px; opacity: {{item.dim}}">
+<sc-if value="{{item.hasOld}}" hint-placeholder-val="{{ false }}"><span style="font-size: 14px; color: #6B625B; text-decoration: line-through">R$ [PREÇO ANTIGO]</span></sc-if>
+<span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: {{item.priceSize}}; font-weight: 800; line-height: 1.15">{{item.price}}</span>
+<sc-if value="{{item.hasInst}}" hint-placeholder-val="{{ false }}"><span style="font-size: 13px; color: #6B625B">ou [X]x de R$ [VALOR]</span></sc-if>
+</div>
+<sc-if value="{{item.available}}" hint-placeholder-val="{{ true }}"><a href="#whatsapp" style="display: flex; align-items: center; justify-content: center; gap: 8px; height: 48px; border-radius: 999px; background: #141110; color: #FFFFFF; font-size: 15px; font-weight: 700; text-decoration: none">Quero no WhatsApp</a></sc-if>
+<sc-if value="{{item.sold}}" hint-placeholder-val="{{ false }}"><button type="button" disabled="" style="height: 48px; border: 0; border-radius: 999px; background: #EDE6E0; color: #8F857E; font-family: 'Figtree', system-ui, sans-serif; font-size: 15px; font-weight: 700">Vendido</button></sc-if>
+</article>
+</div>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding: 28px; border-radius: 32px; background: #FFFFFF; font-size: 14px; line-height: 1.6">
+<div><strong style="display: block; padding-bottom: 6px; font-size: 16px">Estrutura</strong>Card: largura da coluna, padding 12 (mobile 8), raio 24 (mobile 20), gap 12 (mobile 8), sombra “card”. O card inteiro leva à página do produto; o botão abre o WhatsApp.<br>Foto: 4:5, raio 16 (mobile 14), fundo #F3EEE9.<br>Selo: 12 px do canto, altura 28 (mobile 24), padding 0 12, pílula.</div>
+<div><strong style="display: block; padding-bottom: 6px; font-size: 16px">Texto e preço</strong>Título: Figtree 16/1.3 600 (mobile 14), <strong>máximo 2 linhas com reticências</strong> (line-clamp: 2) e altura mínima de 2 linhas, para os cards ficarem alinhados. O título completo aparece na página do produto e no atributo title.<br>Specs: 14 (mobile 12), 1 linha.<br>Bloco de preço: altura mínima 68 (mobile 54), alinhado embaixo.</div>
+<div><strong style="display: block; padding-bottom: 6px; font-size: 16px">Regras</strong>Sem preço: “Consulte o preço” em 18 px/800.<br>Preço antigo e parcelamento: opcionais, só aparecem se preenchidos.<br>VENDIDO: foto e texto com 45% de opacidade, selo preto, botão desabilitado. Vai para o fim da lista e sai do site após [X] dias.<br>Botão: 48 (mobile 44). No mobile o texto vira “WhatsApp”.</div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 32px">
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 48px; line-height: 1.05; font-weight: 800; letter-spacing: -0.03em">Fotos: proporção única 4:5</h2>
+<div style="display: grid; grid-template-columns: repeat(3, 220px) minmax(0, 1fr); gap: 24px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 10px"><div style="display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 5; box-sizing: border-box; padding: 6%; border-radius: 16px; background: #F3EEE9"><div style="display: flex; align-items: center; justify-content: center; height: 100%; aspect-ratio: 3 / 4; border-radius: 6px; background: #C9C0B8; color: #141110; font-size: 13px; font-weight: 700">Foto 3:4</div></div><span style="font-size: 14px; color: #6B625B">Vertical: encaixa pela altura.</span></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><div style="display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 5; box-sizing: border-box; padding: 6%; border-radius: 16px; background: #F3EEE9"><div style="display: flex; align-items: center; justify-content: center; width: 100%; aspect-ratio: 4 / 3; border-radius: 6px; background: #C9C0B8; color: #141110; font-size: 13px; font-weight: 700">Foto 4:3</div></div><span style="font-size: 14px; color: #6B625B">Horizontal: encaixa pela largura.</span></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><div style="display: flex; align-items: center; justify-content: center; aspect-ratio: 4 / 5; box-sizing: border-box; padding: 6%; border-radius: 16px; background: #F3EEE9"><div style="display: flex; align-items: center; justify-content: center; width: 100%; aspect-ratio: 1 / 1; border-radius: 6px; background: #C9C0B8; color: #141110; font-size: 13px; font-weight: 700">Foto 1:1</div></div><span style="font-size: 14px; color: #6B625B">Quadrada: centralizada.</span></div>
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 24px; border-radius: 24px; background: #FFFFFF; font-size: 15px; line-height: 1.6">
+<strong style="font-size: 17px">Comportamento</strong>
+<span>• Moldura sempre 4:5 (ex.: 800 × 1000 px), fundo #F3EEE9, padding interno de 6%.</span>
+<span>• object-fit: contain e centralizada. Nunca cortar nem distorcer.</span>
+<span>• No upload: redimensionar para 1200 px no lado maior, WebP com qualidade 80, lazy-load.</span>
+<span>• Sem foto: placeholder com o nome da loja (ver card “Sem foto”).</span>
+<span>• Orientação para o dono: fotografar em fundo claro e liso, com o aparelho centralizado e luz de janela.</span>
+</div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 32px">
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 48px; line-height: 1.05; font-weight: 800; letter-spacing: -0.03em">Botões</h2>
+<div style="display: flex; flex-direction: column; padding: 12px 28px; border-radius: 32px; background: #FFFFFF">
+<div style="display: grid; grid-template-columns: 180px repeat(5, minmax(0, 1fr)); gap: 16px; align-items: center; padding: 12px 0; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #6B625B"><span>Tipo</span><span>Normal</span><span>Hover</span><span>Pressionado</span><span>Desabilitado</span><span>Foco (teclado)</span></div>
+<div style="display: grid; grid-template-columns: 180px repeat(5, minmax(0, 1fr)); gap: 16px; align-items: center; padding: 16px 0; border-top: 1px solid #E8E0D9">
+<div style="display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 15px">Primário</strong><span style="font-size: 12px; color: #6B625B">#FE6B01 · texto preto</span></div>
+<span style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; background: #FE6B01; color: #141110; font-size: 15px; font-weight: 700">Ver celulares</span>
+<span style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; background: #E85F00; color: #141110; font-size: 15px; font-weight: 700">#E85F00 · 5,4:1</span>
+<span style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; background: #D15500; color: #141110; font-size: 15px; font-weight: 700; transform: scale(0.98)">#D15500 · 4,5:1</span>
+<span style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; background: #EDE6E0; color: #8F857E; font-size: 15px; font-weight: 700">Ver celulares</span>
+<span style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; background: #FE6B01; color: #141110; font-size: 15px; font-weight: 700; outline: 3px solid #141110; outline-offset: 3px">Ver celulares</span>
+</div>
+<div style="display: grid; grid-template-columns: 180px repeat(5, minmax(0, 1fr)); gap: 16px; align-items: center; padding: 16px 0; border-top: 1px solid #E8E0D9">
+<div style="display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 15px">Secundário</strong><span style="font-size: 12px; color: #6B625B">#141110 · texto branco</span></div>
+<span style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; background: #141110; color: #FFFFFF; font-size: 15px; font-weight: 700">Quero no WhatsApp</span>
+<span style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; background: #2E2926; color: #FFFFFF; font-size: 15px; font-weight: 700">#2E2926</span>
+<span style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; background: #000000; color: #FFFFFF; font-size: 15px; font-weight: 700; transform: scale(0.98)">#000000</span>
+<span style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; background: #EDE6E0; color: #8F857E; font-size: 15px; font-weight: 700">Vendido</span>
+<span style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; background: #141110; color: #FFFFFF; font-size: 15px; font-weight: 700; outline: 3px solid #FE6B01; outline-offset: 3px">Quero no WhatsApp</span>
+</div>
+<div style="display: grid; grid-template-columns: 180px repeat(5, minmax(0, 1fr)); gap: 16px; align-items: center; padding: 16px 0; border-top: 1px solid #E8E0D9">
+<div style="display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 15px">Contorno</strong><span style="font-size: 12px; color: #6B625B">borda 2 px #141110</span></div>
+<span style="display: flex; align-items: center; justify-content: center; height: 48px; box-sizing: border-box; border-radius: 999px; border: 2px solid #141110; color: #141110; font-size: 15px; font-weight: 700">Compartilhar</span>
+<span style="display: flex; align-items: center; justify-content: center; height: 48px; box-sizing: border-box; border-radius: 999px; border: 2px solid #141110; background: #F1ECE8; color: #141110; font-size: 15px; font-weight: 700">fundo #F1ECE8</span>
+<span style="display: flex; align-items: center; justify-content: center; height: 48px; box-sizing: border-box; border-radius: 999px; border: 2px solid #141110; background: #E6DED7; color: #141110; font-size: 15px; font-weight: 700; transform: scale(0.98)">fundo #E6DED7</span>
+<span style="display: flex; align-items: center; justify-content: center; height: 48px; box-sizing: border-box; border-radius: 999px; border: 2px solid #E8E0D9; color: #8F857E; font-size: 15px; font-weight: 700">Compartilhar</span>
+<span style="display: flex; align-items: center; justify-content: center; height: 48px; box-sizing: border-box; border-radius: 999px; border: 2px solid #141110; color: #141110; font-size: 15px; font-weight: 700; outline: 3px solid #141110; outline-offset: 3px">Compartilhar</span>
+</div>
+<div style="display: grid; grid-template-columns: 180px repeat(5, minmax(0, 1fr)); gap: 16px; align-items: center; padding: 16px 0; border-top: 1px solid #E8E0D9">
+<div style="display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 15px">Link</strong><span style="font-size: 12px; color: #6B625B">#C24E00 · 700</span></div>
+<span style="display: flex; align-items: center; justify-content: center; height: 44px; color: #C24E00; font-size: 15px; font-weight: 700">Ver todos →</span>
+<span style="display: flex; align-items: center; justify-content: center; height: 44px; color: #8A3700; font-size: 15px; font-weight: 700; text-decoration: underline">Ver todos →</span>
+<span style="display: flex; align-items: center; justify-content: center; height: 44px; color: #8A3700; font-size: 15px; font-weight: 700">Ver todos →</span>
+<span style="display: flex; align-items: center; justify-content: center; height: 44px; color: #8F857E; font-size: 15px; font-weight: 700">Ver todos →</span>
+<span style="display: flex; align-items: center; justify-content: center; height: 44px; color: #C24E00; font-size: 15px; font-weight: 700; outline: 3px solid #141110; outline-offset: 3px; border-radius: 6px">Ver todos →</span>
+</div>
+<p style="margin: 0; padding: 12px 0 8px; border-top: 1px solid #E8E0D9; font-size: 14px; line-height: 1.5; color: #6B625B">Tamanhos: G 56 (padding 0 28, texto 17) · M 48 (0 24, 16) · P 44 (0 20, 15), que é o mínimo no mobile. CTA do produto: 64 no desktop, 56 na barra fixa do mobile. Ícone de 20 px com gap de 8–10. Os botões usam pílula, raio 999.</p>
+</div>
+</section>
+
+<section style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; border-radius: 32px; background: #FFFFFF">
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 24px; font-weight: 800">Selos</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="display: flex; align-items: center; height: 28px; padding: 0 12px; border-radius: 999px; background: #141110; color: #FFFFFF; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase">Novo</span>
+<span style="display: flex; align-items: center; height: 28px; padding: 0 12px; border-radius: 999px; background: #FFF1E6; color: #8A3700; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase">Seminovo</span>
+<span style="display: flex; align-items: center; height: 28px; padding: 0 12px; border-radius: 999px; background: #FE6B01; color: #141110; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase">Destaque</span>
+<span style="display: flex; align-items: center; height: 28px; padding: 0 12px; border-radius: 999px; background: #141110; color: #FFFFFF; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase">Vendido</span>
+</div>
+<span style="font-size: 14px; line-height: 1.5; color: #6B625B">Um selo por card. Prioridade: Vendido &gt; Destaque &gt; Novo/Seminovo. Novo e Vendido compartilham o preto; o Vendido se distingue pelo esmaecimento do card.</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; border-radius: 32px; background: #FFFFFF">
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 24px; font-weight: 800">Chips</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="display: flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid #E8E0D9; font-size: 15px; font-weight: 600">128 GB</span>
+<span style="display: flex; align-items: center; height: 44px; padding: 0 18px; border-radius: 999px; border: 1.5px solid #E8E0D9; font-size: 15px; font-weight: 600">Samsung</span>
+<span style="display: flex; align-items: center; height: 44px; padding: 0 18px; border-radius: 999px; background: #141110; color: #FFFFFF; font-size: 15px; font-weight: 600">✓ Apple</span>
+<span style="display: flex; align-items: center; height: 36px; padding: 0 14px; border-radius: 999px; background: #FFF1E6; color: #8A3700; font-size: 14px; font-weight: 600">Apple ✕</span>
+</div>
+<span style="font-size: 14px; line-height: 1.5; color: #6B625B">Spec: 40 (mobile 36), só leitura. Filtro: 44, e fica preto quando ativo. Filtro ativo removível: 36, fundo laranja claro.</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; border-radius: 32px; background: #FFFFFF">
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 24px; font-weight: 800">Busca</h3>
+<span style="display: flex; align-items: center; gap: 10px; height: 52px; box-sizing: border-box; padding: 0 20px; border-radius: 999px; border: 1.5px solid #E8E0D9; color: #6B625B; font-size: 16px">Buscar por nome</span>
+<span style="display: flex; align-items: center; gap: 10px; height: 52px; box-sizing: border-box; padding: 0 20px; border-radius: 999px; border: 2px solid #141110; color: #141110; font-size: 16px">iphone 13|</span>
+<span style="font-size: 14px; line-height: 1.5; color: #6B625B">52 de altura, texto 16 (evita zoom no iOS). Busca enquanto digita com 250 ms de espera, sem diferenciar acentos nem maiúsculas.</span>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 32px">
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 48px; line-height: 1.05; font-weight: 800; letter-spacing: -0.03em">Estados de tela</h2>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; border-radius: 32px; background: #FFFFFF">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6B625B">Carregando</span>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 10px; border-radius: 20px; background: #FBF8F5"><div style="aspect-ratio: 4 / 5; border-radius: 14px; background: #EFE8E1"></div><div style="height: 14px; width: 85%; border-radius: 999px; background: #EFE8E1"></div><div style="height: 12px; width: 55%; border-radius: 999px; background: #EFE8E1"></div><div style="height: 20px; width: 60%; border-radius: 999px; background: #EFE8E1"></div><div style="height: 44px; border-radius: 999px; background: #EFE8E1"></div></div>
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 10px; border-radius: 20px; background: #FBF8F5"><div style="aspect-ratio: 4 / 5; border-radius: 14px; background: #EFE8E1"></div><div style="height: 14px; width: 85%; border-radius: 999px; background: #EFE8E1"></div><div style="height: 12px; width: 55%; border-radius: 999px; background: #EFE8E1"></div><div style="height: 20px; width: 60%; border-radius: 999px; background: #EFE8E1"></div><div style="height: 44px; border-radius: 999px; background: #EFE8E1"></div></div>
+</div>
+<span style="font-size: 14px; line-height: 1.5; color: #6B625B">Esqueleto no formato do card, com brilho suave de 1,2 s. Só aparece se a espera passar de 300 ms.</span>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 40px 28px; border-radius: 32px; background: #FFFFFF; text-align: center">
+<span style="align-self: flex-start; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6B625B">Busca sem resultado</span>
+<span style="display: flex; align-items: center; justify-content: center; width: 72px; height: 72px; margin-top: 16px; border-radius: 999px; background: #FFF1E6; color: #C24E00"><svg aria-hidden="true" width="32" height="32" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg></span>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 26px; line-height: 1.15; font-weight: 800">Nada encontrado para “iphone 20”</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #6B625B">Confira a grafia ou tente um termo mais simples, como “iPhone 13”. Se não achar, pergunte pra gente.</p>
+<div style="display: flex; flex-direction: column; gap: 10px; width: 100%">
+<span style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; background: #FE6B01; color: #141110; font-size: 15px; font-weight: 700">Perguntar no WhatsApp</span>
+<span style="display: flex; align-items: center; justify-content: center; height: 48px; box-sizing: border-box; border-radius: 999px; border: 2px solid #141110; font-size: 15px; font-weight: 700">Limpar busca</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 40px 28px; border-radius: 32px; background: #FFFFFF; text-align: center">
+<span style="align-self: flex-start; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #6B625B">Catálogo vazio / filtro sem itens</span>
+<span style="display: flex; align-items: center; justify-content: center; width: 72px; height: 72px; margin-top: 16px; border-radius: 999px; background: #FFF1E6; color: #C24E00"><svg aria-hidden="true" width="32" height="32" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.5"></rect><path d="M11 18h2"></path></svg></span>
+<h3 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 26px; line-height: 1.15; font-weight: 800">Estamos atualizando o catálogo</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #6B625B">Fale com a gente no WhatsApp para saber quais aparelhos estão disponíveis na loja agora.</p>
+<div style="display: flex; flex-direction: column; gap: 10px; width: 100%">
+<span style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 999px; background: #FE6B01; color: #141110; font-size: 15px; font-weight: 700">Falar no WhatsApp</span>
+<span style="display: flex; align-items: center; justify-content: center; height: 48px; box-sizing: border-box; border-radius: 999px; border: 2px solid #141110; font-size: 15px; font-weight: 700">Limpar filtros</span>
+</div>
+</div>
+</div>
+</section>
+
+<div style="flex-grow: 1"></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:4000}}">
+class Component extends DCLogic {
+  renderVals() {
+    const B = { novo: ['Novo', '#141110', '#FFFFFF'], semi: ['Seminovo', '#FFF1E6', '#8A3700'], dest: ['Destaque', '#FE6B01', '#141110'], vend: ['Vendido', '#141110', '#FFFFFF'] };
+    const card = (o) => { const b = o.badge ? B[o.badge] : null; const sold = o.badge === 'vend'; return { label: o.label, name: o.name, specs: o.specs, screen: o.screen || '#FE6B01', hasPhoto: !o.noPhoto, noPhoto: !!o.noPhoto, hasBadge: !!b, badge: b ? b[0] : '', badgeBg: b ? b[1] : '', badgeFg: b ? b[2] : '', hasOld: !!o.old, hasInst: !!o.inst, price: o.noPrice ? 'Consulte o preço' : 'R$ [PREÇO]', priceSize: o.noPrice ? '18px' : '24px', available: !sold, sold: sold, dim: sold ? '0.45' : '1' }; };
+    return { cards: [
+      { label: '01 · Com preço', name: 'iPhone 13 128GB [EXEMPLO]', specs: '128 GB · Meia-noite', screen: '#FE6B01' },
+      { label: '02 · Sem preço', name: 'iPhone 12 64GB [EXEMPLO]', specs: '64 GB · Branco', screen: '#FFF1E6', noPrice: true },
+      { label: '03 · Preço antigo + parcela', name: 'Galaxy S23 256GB [EXEMPLO]', specs: '256 GB · Creme', screen: '#6B625B', old: true, inst: true },
+      { label: '04 · Selo Novo', name: 'iPhone 15 128GB [EXEMPLO]', specs: '128 GB · Preto', badge: 'novo', screen: '#C24E00', inst: true },
+      { label: '05 · Selo Seminovo', name: 'iPhone 11 64GB [EXEMPLO]', specs: '64 GB · Bateria [X]%', badge: 'semi', screen: '#E8E0D9' },
+      { label: '06 · Selo Destaque', name: 'Moto G84 [EXEMPLO]', specs: '256 GB · Grafite', badge: 'dest', screen: '#FE6B01', inst: true },
+      { label: '07 · Vendido', name: 'iPhone XR 64GB [EXEMPLO]', specs: '64 GB · Vermelho', badge: 'vend', screen: '#C24E00' },
+      { label: '08 · Título curto', name: 'Moto G84', specs: '256 GB · Grafite', screen: '#6B625B' },
+      { label: '09 · Título muito longo', name: 'iPhone 15 Pro Max 256GB Titânio Natural Seminovo Bateria 92%', specs: '256 GB · Titânio natural', badge: 'semi', screen: '#FFF1E6', inst: true },
+      { label: '10 · Sem foto', name: 'iPhone SE 64GB [EXEMPLO]', specs: '64 GB · Estelar', noPhoto: true }
+    ].map(card) };
+  }
+}
+</script>
+
+
+</body></html>

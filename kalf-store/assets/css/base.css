@@ -1,0 +1,155 @@
+/* ==========================================================================
+   KALF STORE — Reset, tipografia base, layout e utilitarios
+   ========================================================================== */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+	margin: 0;
+	background: var(--fundo);
+	color: var(--preto);
+	font-family: var(--fonte-texto);
+	font-size: var(--fs-texto);
+	line-height: var(--lh-texto);
+	font-weight: 400;
+	/* Nenhuma tela pode rolar na horizontal */
+	overflow-x: hidden;
+}
+
+img,
+picture,
+svg,
+video {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+	font: inherit;
+	color: inherit;
+}
+
+a { color: var(--laranja-texto); }
+a:hover { color: var(--laranja-escuro); }
+
+h1, h2, h3, h4 {
+	margin: 0;
+	font-family: var(--fonte-titulo);
+	font-weight: 800;
+}
+
+h1 { font-size: var(--fs-h1); line-height: var(--lh-h1); letter-spacing: var(--ls-display); }
+h2 { font-size: var(--fs-h2); line-height: var(--lh-h2); letter-spacing: var(--ls-h2); }
+h3 { font-size: var(--fs-h3); line-height: var(--lh-h3); letter-spacing: var(--ls-h3); }
+
+p { margin: 0; }
+
+ul, ol { margin: 0; padding: 0; }
+
+/* --- Foco visivel: 3px preto com 3px de afastamento.
+       Em fundo escuro/laranja, o contorno vira branco ou laranja. --- */
+:focus-visible {
+	outline: 3px solid var(--preto);
+	outline-offset: 3px;
+	border-radius: 6px;
+}
+
+.kalf-escuro :focus-visible,
+.kalf-rodape :focus-visible { outline-color: var(--branco); }
+
+.kalf-btn--secundario:focus-visible { outline-color: var(--laranja); }
+
+/* --- Layout --- */
+.kalf-container {
+	width: 100%;
+	max-width: calc(var(--container) + var(--margem) * 2);
+	margin-inline: auto;
+	padding-inline: var(--margem);
+}
+
+.kalf-secao { padding-block: var(--secao-y); }
+
+/* Secao com fundo colorido ocupa 100% da largura; o conteudo segue contido. */
+.kalf-secao--claro { background: var(--laranja-claro); }
+.kalf-secao--laranja { background: var(--laranja); color: var(--preto); }
+.kalf-secao--branco { background: var(--branco); }
+
+/* --- Acessibilidade --- */
+.kalf-sr {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* Link "pular para o conteudo" */
+.kalf-pular {
+	position: absolute;
+	top: -100px;
+	left: var(--s-4);
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	height: var(--btn-p);
+	padding-inline: var(--s-5);
+	border-radius: var(--r-pilula);
+	background: var(--preto);
+	color: var(--branco);
+	font-weight: 700;
+	text-decoration: none;
+	transition: top var(--t-hover) var(--ease);
+}
+
+.kalf-pular:focus {
+	top: var(--s-4);
+	color: var(--branco);
+}
+
+/* --- Entrada ao rolar: fade + 16px para cima, uma vez so --- */
+.kalf-revelar {
+	opacity: 0;
+	transform: translateY(16px);
+	transition:
+		opacity var(--t-entrada) var(--ease),
+		transform var(--t-entrada) var(--ease);
+}
+
+.kalf-revelar.kalf-visivel {
+	opacity: 1;
+	transform: none;
+}
+
+/* Sem JS, o conteudo precisa aparecer de qualquer forma. */
+.no-js .kalf-revelar {
+	opacity: 1;
+	transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.kalf-revelar {
+		transform: none;
+		transition-duration: var(--t-hover);
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: var(--t-hover) !important;
+		scroll-behavior: auto !important;
+	}
+}

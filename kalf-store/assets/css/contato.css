@@ -1,0 +1,35 @@
+/* ==========================================================================
+   KALF STORE — Pagina de Contato
+   ========================================================================== */
+
+.kalf-contato-topo {
+	display: flex;
+	flex-direction: column;
+	gap: var(--s-3);
+	padding-block: var(--s-7) var(--s-6);
+}
+.kalf-contato-topo p { max-width: 46ch; font-size: var(--fs-texto-g); line-height: 1.5; color: var(--cinza-texto); }
+
+.kalf-contato__coluna-esq { display: flex; flex-direction: column; gap: var(--s-4); }
+
+.kalf-contato-card {
+	display: flex;
+	flex-direction: column;
+	gap: var(--s-4);
+	padding: var(--s-6);
+	border-radius: var(--r-bloco);
+	background: var(--branco);
+	text-decoration: none;
+	color: var(--preto);
+}
+.kalf-contato-card__icone { color: var(--laranja-texto); }
+
+.kalf-contato-grade2 {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--s-4);
+}
+
+@media (min-width: 480px) {
+	.kalf-contato-grade2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

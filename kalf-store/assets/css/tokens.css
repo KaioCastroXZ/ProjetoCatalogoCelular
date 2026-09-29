@@ -1,0 +1,125 @@
+/* ==========================================================================
+   KALF STORE — Design tokens
+   Trocar a cor da marca = trocar --laranja e as 3 variacoes de estado.
+   Valores conforme o Guia de estilo do Claude Design.
+   ========================================================================== */
+
+:root {
+	/* --- Cores da marca ---
+	   Texto sobre --laranja e SEMPRE --preto (6,55:1). Branco reprova (2,87:1). */
+	--laranja: #FE6B01;
+	--laranja-hover: #E85F00;
+	--laranja-press: #D15500;
+	--laranja-texto: #C24E00;   /* links e texto laranja em fundo claro — 4,79:1 */
+	--laranja-escuro: #8A3700;  /* hover de link; texto do selo Seminovo — 7,22:1 */
+	--laranja-claro: #FFF1E6;   /* secoes alternadas, fundo de icone, chip ativo */
+	--laranja-medio: #FF8A33;   /* decorativo apenas — nunca em texto */
+
+	/* --- Neutros --- */
+	--preto: #141110;
+	--preto-hover: #2E2926;
+	--preto-press: #000000;
+	--cinza-texto: #6B625B;         /* 5,96:1 no branco */
+	--cinza-desabilitado: #8F857E;  /* so em estado desabilitado */
+	--borda: #E8E0D9;
+	--fundo-foto: #F3EEE9;
+	--fundo: #FBF8F5;
+	--branco: #FFFFFF;
+
+	/* --- Apoio --- */
+	--menu-ativo: #F1E9E2;
+	--desabilitado-bg: #EDE6E0;
+	--contorno-hover: #F1ECE8;
+	--contorno-press: #E6DED7;
+	--rodape-texto: #C9C0B8;    /* 10,5:1 sobre --preto */
+	--rodape-divisor: #3A332F;
+	--ponto-inativo: #D6CCC3;
+	--skeleton: #EFE8E1;
+
+	/* --- Tipografia --- */
+	--fonte-titulo: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', sans-serif;
+	--fonte-texto: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+	/* Escala fluida: min no mobile (390px), max no desktop (1440px) */
+	--fs-display: clamp(3rem, 2.203rem + 3.98vw, 5.5rem);      /* 48 -> 88 */
+	--fs-h1: clamp(2.5rem, 2.021rem + 2.39vw, 4rem);           /* 40 -> 64 */
+	--fs-h2: clamp(2rem, 1.681rem + 1.59vw, 3rem);             /* 32 -> 48 */
+	--fs-h3: clamp(1.375rem, 1.256rem + 0.6vw, 1.75rem);       /* 22 -> 28 */
+	--fs-preco-produto: clamp(2.25rem, 2.011rem + 1.19vw, 3rem); /* 36 -> 48 */
+	--fs-preco-card: 1.5rem;        /* 24 — mobile 2 col. sobrescreve para 19 */
+	--fs-texto-g: clamp(1.125rem, 1.086rem + 0.2vw, 1.25rem);  /* 18 -> 20 */
+	--fs-texto: 1rem;               /* 16 — nunca menor em input (evita zoom iOS) */
+	--fs-pequeno: 0.875rem;         /* 14 */
+	--fs-selo: 0.75rem;             /* 12 */
+
+	--lh-display: 0.95;
+	--lh-h1: 1;
+	--lh-h2: 1.05;
+	--lh-h3: 1.15;
+	--lh-texto: 1.55;
+
+	--ls-display: -0.035em;
+	--ls-h2: -0.03em;
+	--ls-h3: -0.02em;
+	--ls-selo: 0.04em;
+
+	/* --- Espacamento (base 4) --- */
+	--s-1: 4px;   --s-2: 8px;   --s-3: 12px;  --s-4: 16px;
+	--s-5: 20px;  --s-6: 24px;  --s-7: 32px;  --s-8: 40px;
+	--s-9: 48px;  --s-10: 56px; --s-11: 64px; --s-12: 96px;
+
+	/* Ritmo vertical entre secoes: 56 no mobile, 96 no desktop */
+	--secao-y: var(--s-10);
+	/* Margem lateral da pagina, por breakpoint */
+	--margem: var(--s-5);
+	--gutter: var(--s-3);
+	--container: 1280px;
+
+	/* --- Raios --- */
+	--r-lista: 12px;
+	--r-foto: 16px;
+	--r-card: 24px;
+	--r-bloco: 32px;
+	--r-hero: 40px;
+	--r-pilula: 999px;
+
+	/* --- Sombras --- */
+	--sh-card: 0 1px 2px rgba(20, 17, 16, 0.06), 0 8px 24px rgba(20, 17, 16, 0.06);
+	--sh-painel: 0 24px 64px rgba(20, 17, 16, 0.16);
+	--sh-cta: 0 8px 24px rgba(254, 107, 1, 0.28);
+	--sh-barra-fixa: 0 -8px 24px rgba(20, 17, 16, 0.08);
+
+	/* --- Movimento --- */
+	--t-hover: 150ms;
+	--t-entrada: 400ms;
+	--t-painel: 280ms;
+	--ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+	/* --- Alturas de controle --- */
+	--btn-g: 56px;
+	--btn-m: 48px;
+	--btn-p: 44px;   /* minimo de toque */
+	--cta-produto: 64px;
+	--campo: 52px;
+}
+
+@media (min-width: 600px) {
+	:root {
+		--margem: var(--s-7);
+		--gutter: var(--s-4);
+	}
+}
+
+@media (min-width: 1024px) {
+	:root {
+		--margem: var(--s-9);
+		--gutter: var(--s-6);
+		--secao-y: var(--s-12);
+	}
+}
+
+@media (min-width: 1440px) {
+	:root {
+		--margem: 80px;
+	}
+}

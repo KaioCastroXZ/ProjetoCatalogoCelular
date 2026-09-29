@@ -1,0 +1,562 @@
+/* ==========================================================================
+   KALF STORE — Componentes
+   Medidas conforme o quadro "Componentes e estados" do design.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Botoes — pilula, 4 tipos x 5 estados
+   Tamanhos: G 56 (pad 28, txt 17) · M 48 (pad 24, txt 16) · P 44 (pad 20, txt 15)
+   -------------------------------------------------------------------------- */
+.kalf-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--s-2);
+	height: var(--btn-m);
+	padding-inline: var(--s-6);
+	border: 0;
+	border-radius: var(--r-pilula);
+	font-family: var(--fonte-texto);
+	font-size: var(--fs-texto);
+	font-weight: 700;
+	line-height: 1;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	transition:
+		background-color var(--t-hover) var(--ease),
+		color var(--t-hover) var(--ease),
+		border-color var(--t-hover) var(--ease),
+		transform var(--t-hover) var(--ease);
+}
+
+.kalf-btn:active { transform: scale(0.98); }
+
+.kalf-btn svg { flex-shrink: 0; }
+
+/* Tamanhos */
+.kalf-btn--g { height: var(--btn-g); padding-inline: var(--s-7); font-size: 1.0625rem; }
+.kalf-btn--p { height: var(--btn-p); padding-inline: var(--s-5); font-size: 0.9375rem; }
+.kalf-btn--bloco { display: flex; width: 100%; }
+
+/* Primario: laranja com texto PRETO (nunca branco) */
+.kalf-btn--primario {
+	background: var(--laranja);
+	color: var(--preto);
+}
+.kalf-btn--primario:hover { background: var(--laranja-hover); color: var(--preto); }
+.kalf-btn--primario:active { background: var(--laranja-press); }
+
+/* Secundario: preto com texto branco */
+.kalf-btn--secundario {
+	background: var(--preto);
+	color: var(--branco);
+}
+.kalf-btn--secundario:hover { background: var(--preto-hover); color: var(--branco); }
+.kalf-btn--secundario:active { background: var(--preto-press); }
+
+/* Contorno: borda 2px preta */
+.kalf-btn--contorno {
+	background: transparent;
+	border: 2px solid var(--preto);
+	color: var(--preto);
+}
+.kalf-btn--contorno:hover { background: var(--contorno-hover); color: var(--preto); }
+.kalf-btn--contorno:active { background: var(--contorno-press); }
+
+/* Link */
+.kalf-btn--link {
+	height: var(--btn-p);
+	padding-inline: 0;
+	background: transparent;
+	color: var(--laranja-texto);
+	font-size: 0.9375rem;
+}
+.kalf-btn--link:hover {
+	color: var(--laranja-escuro);
+	text-decoration: underline;
+}
+
+/* Desabilitado — vale para todos os tipos */
+.kalf-btn:disabled,
+.kalf-btn[aria-disabled="true"] {
+	background: var(--desabilitado-bg);
+	border-color: var(--borda);
+	color: var(--cinza-desabilitado);
+	cursor: not-allowed;
+	transform: none;
+}
+
+/* CTA do produto: 64px no desktop, com sombra laranja */
+.kalf-btn--cta {
+	height: var(--cta-produto);
+	font-size: 1.1875rem;
+	gap: var(--s-3);
+	box-shadow: var(--sh-cta);
+}
+
+/* Botao so de icone — respeita o minimo de toque 44x44 */
+.kalf-btn-icone {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--btn-p);
+	height: var(--btn-p);
+	padding: 0;
+	border: 0;
+	border-radius: var(--r-pilula);
+	background: transparent;
+	color: var(--preto);
+	cursor: pointer;
+	transition: background-color var(--t-hover) var(--ease);
+}
+.kalf-btn-icone:hover { background: var(--menu-ativo); }
+.kalf-btn-icone--laranja { background: var(--laranja); color: var(--preto); }
+.kalf-btn-icone--laranja:hover { background: var(--laranja-hover); }
+
+/* --------------------------------------------------------------------------
+   Selos — um por card. Prioridade: Vendido > Destaque > Novo/Seminovo
+   -------------------------------------------------------------------------- */
+.kalf-selo {
+	display: inline-flex;
+	align-items: center;
+	height: 28px;
+	padding-inline: var(--s-3);
+	border-radius: var(--r-pilula);
+	font-size: var(--fs-selo);
+	font-weight: 700;
+	letter-spacing: var(--ls-selo);
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+.kalf-selo--novo,
+.kalf-selo--vendido { background: var(--preto); color: var(--branco); }
+.kalf-selo--seminovo { background: var(--laranja-claro); color: var(--laranja-escuro); }
+.kalf-selo--destaque { background: var(--laranja); color: var(--preto); }
+
+/* --------------------------------------------------------------------------
+   Chips
+   Spec (so leitura): 40 desktop / 36 mobile. Filtro: 44. Removivel: 36.
+   -------------------------------------------------------------------------- */
+.kalf-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--s-2);
+	height: 40px;
+	padding-inline: var(--s-4);
+	border: 1px solid var(--borda);
+	border-radius: var(--r-pilula);
+	background: var(--branco);
+	font-size: 0.9375rem;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.kalf-chip__cor {
+	width: 14px;
+	height: 14px;
+	flex-shrink: 0;
+	border: 1px solid var(--ponto-inativo);
+	border-radius: var(--r-pilula);
+}
+
+/* Chip de filtro: 44px, fica preto quando ativo */
+.kalf-chip-filtro {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--s-2);
+	height: var(--btn-p);
+	padding-inline: 18px;
+	border: 1.5px solid var(--borda);
+	border-radius: var(--r-pilula);
+	background: var(--branco);
+	color: var(--preto);
+	font-family: var(--fonte-texto);
+	font-size: 0.9375rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition:
+		background-color var(--t-hover) var(--ease),
+		border-color var(--t-hover) var(--ease),
+		color var(--t-hover) var(--ease);
+}
+.kalf-chip-filtro:hover { border-color: var(--preto); }
+.kalf-chip-filtro[aria-pressed="true"] {
+	background: var(--preto);
+	border-color: var(--preto);
+	color: var(--branco);
+}
+.kalf-chip-filtro__check { display: none; }
+.kalf-chip-filtro[aria-pressed="true"] .kalf-chip-filtro__check { display: block; }
+
+/* Chip de filtro ativo, removivel: 36px, laranja claro */
+.kalf-chip-remover {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--s-1);
+	height: 36px;
+	flex-shrink: 0;
+	padding: 0 var(--s-3) 0 14px;
+	border: 0;
+	border-radius: var(--r-pilula);
+	background: var(--laranja-claro);
+	color: var(--laranja-escuro);
+	font-family: var(--fonte-texto);
+	font-size: var(--fs-pequeno);
+	font-weight: 600;
+	cursor: pointer;
+}
+.kalf-chip-remover:hover { background: #FFE4CE; }
+
+/* --------------------------------------------------------------------------
+   Busca — 52px de altura, texto 16 (abaixo disso o iOS da zoom)
+   -------------------------------------------------------------------------- */
+.kalf-busca {
+	display: flex;
+	align-items: center;
+	gap: var(--s-3);
+	height: var(--campo);
+	padding-inline: var(--s-5);
+	border: 1.5px solid var(--borda);
+	border-radius: var(--r-pilula);
+	background: var(--branco);
+	color: var(--cinza-texto);
+	transition: border-color var(--t-hover) var(--ease);
+}
+.kalf-busca:focus-within {
+	border: 2px solid var(--preto);
+	color: var(--preto);
+	outline: none;
+}
+.kalf-busca svg { flex-shrink: 0; }
+.kalf-busca input {
+	flex-grow: 1;
+	min-width: 0;
+	border: 0;
+	outline: none;
+	background: transparent;
+	font-size: var(--fs-texto);
+	color: var(--preto);
+}
+.kalf-busca input::placeholder { color: var(--cinza-texto); }
+/* Esconde o X nativo do input[type=search] para nao competir com o layout */
+.kalf-busca input::-webkit-search-cancel-button { -webkit-appearance: none; }
+
+/* Select de ordenacao */
+.kalf-ordenar {
+	display: flex;
+	align-items: center;
+	gap: var(--s-2);
+	height: var(--campo);
+	padding: 0 var(--s-2) 0 var(--s-5);
+	border: 1.5px solid var(--borda);
+	border-radius: var(--r-pilula);
+	background: var(--branco);
+	font-size: 0.9375rem;
+	color: var(--cinza-texto);
+}
+.kalf-ordenar select {
+	height: var(--btn-p);
+	border: 0;
+	background: transparent;
+	font-size: var(--fs-texto);
+	font-weight: 700;
+	color: var(--preto);
+	cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   Card de produto
+   Desktop: pad 12, raio 24, gap 12 · Mobile 2 col.: pad 8, raio 20, gap 8
+   -------------------------------------------------------------------------- */
+.kalf-card {
+	display: flex;
+	flex-direction: column;
+	gap: var(--s-2);
+	min-width: 0;
+	padding: var(--s-2);
+	border-radius: 20px;
+	background: var(--branco);
+	box-shadow: var(--sh-card);
+	transition: transform var(--t-hover) var(--ease), box-shadow var(--t-hover) var(--ease);
+}
+
+.kalf-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 2px 4px rgba(20, 17, 16, 0.08), 0 12px 32px rgba(20, 17, 16, 0.1);
+}
+
+/* Foto: moldura 4:5, fundo neutro, padding 6%, contain. Nunca corta.
+   O selo fica FORA do link (irmao dele) para o nome acessivel do link
+   nao ficar dessincronizado do texto visivel do selo. */
+.kalf-card__foto-wrap { position: relative; }
+
+.kalf-card__foto {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	aspect-ratio: 4 / 5;
+	padding: 6%;
+	border-radius: 14px;
+	background: var(--fundo-foto);
+	overflow: hidden;
+	text-decoration: none;
+}
+
+.kalf-card__foto img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.kalf-card__selo {
+	position: absolute;
+	top: var(--s-2);
+	left: var(--s-2);
+	height: 24px;
+	padding-inline: 9px;
+	font-size: 0.625rem; /* 10 no card de 2 colunas */
+}
+
+/* Placeholder de "sem foto" com a identidade da loja */
+.kalf-sem-foto {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--s-1);
+	text-align: center;
+}
+.kalf-sem-foto__marca {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-family: var(--fonte-titulo);
+	font-size: 1rem;
+	font-weight: 800;
+	letter-spacing: var(--ls-h3);
+	color: var(--preto);
+}
+.kalf-sem-foto__marca::before {
+	content: "";
+	width: 9px;
+	height: 9px;
+	border-radius: 2px;
+	background: var(--laranja);
+}
+.kalf-sem-foto__aviso {
+	font-size: 0.75rem;
+	color: var(--cinza-texto);
+}
+
+.kalf-card__corpo {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding-inline: var(--s-1);
+}
+
+/* Titulo: no maximo 2 linhas, com altura minima de 2 linhas.
+   E isso que mantem os cards da grade alinhados. */
+.kalf-card__titulo {
+	margin: 0;
+	min-height: 36px;
+	font-family: var(--fonte-texto);
+	font-size: var(--fs-pequeno);
+	line-height: 1.3;
+	font-weight: 600;
+	letter-spacing: normal;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.kalf-card__titulo a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.kalf-card__specs {
+	font-size: 0.75rem;
+	color: var(--cinza-texto);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Bloco de preco com altura minima, alinhado embaixo */
+.kalf-card__preco {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	gap: 1px;
+	min-height: 54px;
+	padding-inline: var(--s-1);
+}
+
+.kalf-preco-antigo {
+	font-size: 0.75rem;
+	color: var(--cinza-texto);
+	text-decoration: line-through;
+}
+
+.kalf-preco {
+	font-family: var(--fonte-titulo);
+	font-size: 1.1875rem; /* 19 no card mobile */
+	font-weight: 800;
+	line-height: 1.15;
+	letter-spacing: -0.01em;
+}
+
+/* "Consulte o preco" e menor que um preco numerico */
+.kalf-preco--consulte { font-size: 0.9375rem; }
+
+.kalf-parcelamento {
+	font-size: 0.6875rem;
+	color: var(--cinza-texto);
+}
+
+/* Texto do CTA do card: curto no mobile ("WhatsApp"), completo a partir do tablet */
+.kalf-card__cta-texto-longo { display: none; }
+.kalf-card__cta-texto-curto { display: inline; }
+@media (min-width: 600px) {
+	.kalf-card__cta-texto-longo { display: inline; }
+	.kalf-card__cta-texto-curto { display: none; }
+}
+
+/* Vendido: foto e texto a 45%, botao desabilitado */
+.kalf-card--vendido .kalf-card__foto img,
+.kalf-card--vendido .kalf-card__corpo,
+.kalf-card--vendido .kalf-card__preco { opacity: 0.45; }
+
+.kalf-card--vendido:hover { transform: none; }
+
+/* --- Card no scroll horizontal dos destaques (mobile) --- */
+.kalf-card--fixo {
+	width: 232px;
+	flex-shrink: 0;
+	gap: 10px;
+	padding: 10px;
+	border-radius: var(--r-card);
+}
+
+@media (min-width: 600px) {
+	.kalf-card {
+		gap: var(--s-3);
+		padding: var(--s-3);
+		border-radius: var(--r-card);
+	}
+	.kalf-card__foto { border-radius: var(--r-foto); }
+	.kalf-card__selo {
+		top: var(--s-3);
+		left: var(--s-3);
+		height: 28px;
+		padding-inline: var(--s-3);
+		font-size: var(--fs-selo);
+	}
+	.kalf-card__corpo { gap: var(--s-1); padding-inline: var(--s-1); }
+	.kalf-card__titulo { min-height: 42px; font-size: var(--fs-texto); }
+	.kalf-card__specs { font-size: var(--fs-pequeno); white-space: normal; }
+	.kalf-card__preco { gap: 2px; min-height: 68px; }
+	.kalf-preco-antigo { font-size: var(--fs-pequeno); }
+	.kalf-preco { font-size: var(--fs-preco-card); }
+	.kalf-preco--consulte { font-size: 1.125rem; }
+	.kalf-parcelamento { font-size: 0.8125rem; }
+	.kalf-sem-foto__marca { font-size: 1.375rem; gap: var(--s-2); }
+	.kalf-sem-foto__marca::before { width: 12px; height: 12px; border-radius: 3px; }
+	.kalf-sem-foto__aviso { font-size: 0.8125rem; }
+}
+
+/* --------------------------------------------------------------------------
+   Grade de produtos: 2 col. mobile / 3 tablet / 4 desktop
+   -------------------------------------------------------------------------- */
+.kalf-grade {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: var(--gutter);
+	list-style: none;
+}
+
+@media (min-width: 600px) {
+	.kalf-grade { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+	.kalf-grade { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* --------------------------------------------------------------------------
+   Estados de tela
+   -------------------------------------------------------------------------- */
+.kalf-estado {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: var(--s-4);
+	padding: var(--s-8) var(--s-7);
+	border-radius: var(--r-bloco);
+	background: var(--branco);
+	text-align: center;
+}
+
+.kalf-estado__icone {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 72px;
+	height: 72px;
+	border-radius: var(--r-pilula);
+	background: var(--laranja-claro);
+	color: var(--laranja-texto);
+}
+
+.kalf-estado h2,
+.kalf-estado h3 {
+	font-size: 1.625rem;
+	line-height: var(--lh-h3);
+}
+
+.kalf-estado p {
+	max-width: 42ch;
+	font-size: 0.9375rem;
+	line-height: 1.5;
+	color: var(--cinza-texto);
+}
+
+.kalf-estado__acoes {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	width: 100%;
+	max-width: 320px;
+}
+
+/* Skeleton: aparece so depois de 300ms, brilho de 1,2s */
+.kalf-skeleton {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 10px;
+	border-radius: 20px;
+	background: var(--fundo);
+}
+
+.kalf-skeleton > * {
+	border-radius: var(--r-pilula);
+	background: var(--skeleton);
+	animation: kalf-brilho 1.2s ease-in-out infinite;
+}
+
+.kalf-skeleton__foto { aspect-ratio: 4 / 5; border-radius: 14px !important; }
+.kalf-skeleton__linha-g { height: 14px; width: 85%; }
+.kalf-skeleton__linha-p { height: 12px; width: 55%; }
+.kalf-skeleton__preco { height: 20px; width: 60%; }
+.kalf-skeleton__btn { height: var(--btn-p); }
+
+@keyframes kalf-brilho {
+	0%, 100% { opacity: 1; }
+	50% { opacity: 0.55; }
+}
